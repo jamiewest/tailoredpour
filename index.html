@@ -235,6 +235,7 @@
       border-radius: var(--radius);
       padding: 18px;
       box-shadow: 0 10px 26px rgba(0,0,0,.06);
+      min-width: 0;
     }
     .card h3{
       margin: 0 0 8px;
@@ -346,6 +347,19 @@
       position: relative;
       overflow:hidden;
     }
+    .ph img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ph.photo:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.35));
+      pointer-events:none;
+    }
     .ph span{
       position:absolute;
       left: 14px; bottom: 12px;
@@ -398,6 +412,8 @@
     }
     input, textarea, select{
       font: inherit;
+      width: 100%;
+      min-width: 0;
       padding: 12px 12px;
       border-radius: 14px;
       border: 1px solid var(--line);
@@ -435,6 +451,20 @@
       .gallery{ grid-template-columns: 1fr; }
       .contact{ grid-template-columns: 1fr; }
       .nav-links{ display:none; } /* keep it clean on mobile */
+    }
+
+    @media (max-width: 760px){
+      .container{ width: min(var(--max), calc(100% - 28px)); }
+      .nav-inner{
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+      .brand .tag{ display:none; }
+      .hero{ padding: 34px 0 12px; }
+      .hero-card, .side-card{ padding: 22px; }
+      h1{ font-size: clamp(32px, 10vw, 44px); }
+      .section-title{ font-size: 26px; }
+      .form-split{ grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -649,7 +679,10 @@
         </p>
 
         <div class="gallery">
-          <div class="ph"><span>Tap setup</span></div>
+          <div class="ph photo">
+            <img src="assets/1.jpg" alt="Tailored Pour tap setup at an event" loading="lazy" />
+            <span>Tap setup</span>
+          </div>
           <div class="ph"><span>Nitro pour</span></div>
           <div class="ph"><span>Menu board</span></div>
           <div class="ph"><span>Garnish station</span></div>
@@ -736,7 +769,7 @@
                 <input id="email" name="Email" type="email" placeholder="you@email.com" required />
               </div>
 
-              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+              <div class="form-split" style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
                 <div>
                   <label for="date">Event date</label>
                   <input id="date" name="Event date" placeholder="MM/DD/YYYY" />
