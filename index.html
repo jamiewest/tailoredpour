@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tailored Pour | Crafted Drinks. Tailored Moments.</title>
+  <meta name="description" content="Tailored Pour is a premium mobile tap and beverage experience in the Inland Empire, CA. Nitro cold brew, mocktails, refreshers, and client-supplied beer/wine on tap for weddings, parties, and corporate events." />
+  <meta name="theme-color" content="#1F1F1F" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tailored Pour | Crafted Drinks. Tailored Moments." />
+  <meta property="og:description" content="Premium mobile tap & beverage experience across the Inland Empire. Nitro cold brew, mocktails, refreshers, and client-supplied beer/wine on tap." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tailoredpour.com" />
+
+  <!-- Fonts (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #F7F3EE;          /* cream */
+      --ink: #1F1F1F;         /* charcoal */
+      --muted: #5C5C5C;
+      --card: #FFFFFF;
+      --line: rgba(31,31,31,.12);
+      --accent: #C8A46B;      /* gold */
+      --accent2: #1F1F1F;
+      --shadow: 0 14px 40px rgba(0,0,0,.10);
+      --radius: 18px;
+      --radius2: 28px;
+      --max: 1120px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(200,164,107,.25), rgba(247,243,238,0) 60%),
+                  radial-gradient(900px 500px at 85% 5%, rgba(31,31,31,.10), rgba(247,243,238,0) 55%),
+                  var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(247,243,238,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:baseline; gap:10px;
+      font-weight:700;
+      letter-spacing: .2px;
+    }
+    .brand .name{
+      font-family: "DM Serif Display", serif;
+      font-size: 22px;
+      line-height:1;
+    }
+    .brand .tag{
+      font-size: 12px;
+      color: var(--muted);
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.55);
+    }
+    .nav-links{ display:flex; gap: 16px; align-items:center; flex-wrap: wrap; justify-content:flex-end; }
+    .nav-links a{
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: 120ms ease;
+    }
+    .nav-links a:hover{ color: var(--ink); background: rgba(255,255,255,.65); }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      font-weight: 600;
+      font-size: 14px;
+      cursor:pointer;
+      transition: 140ms ease;
+      user-select:none;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,.10); }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(200,164,107,.95), rgba(200,164,107,.80));
+      border-color: rgba(200,164,107,.7);
+      color: #1C140A;
+    }
+    .btn.dark{
+      background: var(--ink);
+      border-color: rgba(31,31,31,.7);
+      color: var(--bg);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 56px 0 24px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-card{
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle at 30% 30%, rgba(200,164,107,.55), rgba(200,164,107,0) 65%);
+      transform: rotate(25deg);
+      pointer-events:none;
+    }
+
+    h1{
+      font-family: "DM Serif Display", serif;
+      margin: 0 0 10px;
+      font-size: clamp(40px, 4vw, 56px);
+      letter-spacing: .2px;
+      line-height: 1.05;
+    }
+    .subtitle{
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+    .badges{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin: 18px 0 0;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap: 8px;
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--muted);
+    }
+
+    .hero-actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+    .side-card{
+      background: rgba(31,31,31,.92);
+      color: var(--bg);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius2);
+      padding: 26px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow:hidden;
+    }
+    .side-card:before{
+      content:"";
+      position:absolute; inset:auto -140px -140px auto;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle at 30% 30%, rgba(200,164,107,.35), rgba(200,164,107,0) 65%);
+      pointer-events:none;
+    }
+    .side-title{
+      font-weight: 700;
+      letter-spacing: .2px;
+      margin: 0 0 10px;
+    }
+    .side-copy{
+      color: rgba(247,243,238,.82);
+      margin: 0 0 18px;
+      font-size: 14px;
+    }
+    .side-list{
+      margin: 0;
+      padding: 0 0 0 18px;
+      color: rgba(247,243,238,.85);
+      font-size: 14px;
+    }
+    .side-list li{ margin: 7px 0; }
+
+    /* Sections */
+    section{ padding: 46px 0; }
+    .section-title{
+      font-family: "DM Serif Display", serif;
+      font-size: 30px;
+      margin: 0 0 12px;
+      line-height:1.1;
+    }
+    .section-sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      background: rgba(255,255,255,.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: .1px;
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Packages */
+    .packages{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .package{
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 20px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow:hidden;
+    }
+    .package.featured{
+      border-color: rgba(200,164,107,.55);
+      box-shadow: 0 18px 44px rgba(0,0,0,.10);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(200,164,107,.55);
+      background: rgba(200,164,107,.18);
+      color: #5A3E10;
+      font-weight: 700;
+      font-size: 12px;
+      width: fit-content;
+    }
+    .price{
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .package h3{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: .1px;
+    }
+    .package ul{
+      margin: 0;
+      padding: 0 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .package li{ margin: 8px 0; }
+    .addons{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Menu list */
+    .menu-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .menu-list{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu-list li{
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.70);
+      margin: 10px 0;
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .menu-list small{ color: var(--muted); }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .ph{
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(31,31,31,.08), rgba(200,164,107,.10)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.0), rgba(255,255,255,.0) 12px, rgba(31,31,31,.04) 12px, rgba(31,31,31,.04) 24px);
+      height: 190px;
+      position: relative;
+      overflow:hidden;
+    }
+    .ph span{
+      position:absolute;
+      left: 14px; bottom: 12px;
+      font-size: 12px;
+      color: rgba(31,31,31,.55);
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    /* FAQ */
+    details{
+      background: rgba(255,255,255,.82);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.05);
+    }
+    details + details{ margin-top: 12px; }
+    summary{
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .form{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    label{
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+    input, textarea, select{
+      font: inherit;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      outline: none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    .fineprint{
+      font-size: 12px;
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content: space-between;
+      align-items:flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .packages{ grid-template-columns: 1fr; }
+      .menu-grid{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .nav-links{ display:none; } /* keep it clean on mobile */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Tailored Pour Home">
+        <div class="name">Tailored Pour</div>
+        <div class="tag">Crafted Drinks. Tailored Moments.</div>
+      </a>
+
+      <div class="nav-links" aria-label="Navigation">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#menu">Menu</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="btn primary" href="#contact">Check Availability</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <div class="container hero">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h1>Crafted Drinks.<br/>Tailored Moments.</h1>
+          <p class="subtitle">
+            A premium mobile tap & beverage experience for weddings, parties, and corporate events
+            across the Inland Empire. Nitro cold brew, mocktails, refreshers, and client-supplied beer & wine on tap.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn dark" href="#packages">View Packages</a>
+            <a class="btn" href="#menu">See Menu Ideas</a>
+          </div>
+
+          <div class="badges" role="list" aria-label="Highlights">
+            <div class="badge" role="listitem">Fast setup (20–30 min)</div>
+            <div class="badge" role="listitem">Up to 4 taps</div>
+            <div class="badge" role="listitem">Nitro cold brew available</div>
+            <div class="badge" role="listitem">Fully insured (recommended)</div>
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <div>
+            <p class="side-title">Perfect for</p>
+            <p class="side-copy">Bring a centerpiece your guests can’t stop talking about — without making hosting harder.</p>
+            <ul class="side-list">
+              <li>Backyard parties & birthdays</li>
+              <li>Weddings & receptions</li>
+              <li>Corporate events & open houses</li>
+              <li>Brunches, showers, & celebrations</li>
+            </ul>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <a class="btn primary" href="#contact">Get a Quote</a>
+            <a class="btn" href="#faq" style="color: var(--bg); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.10);">How it works</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">The bar experience your guests talk about</h2>
+        <p class="section-sub">
+          Tailored Pour blends premium presentation with effortless flow. Choose the vibe — coffee bar, refreshers, mocktails,
+          or client-supplied kegs (where permitted). We bring the setup, signage, and the “wow” pour moment.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Made for celebrations</h3>
+            <p>Signature menus, clean styling, and photo-worthy pours that feel elevated — not fussy.</p>
+          </div>
+          <div class="card">
+            <h3>Variety for every guest</h3>
+            <p>Coffee, water, juice, mocktails, refreshers, and taps — tailored to your crowd.</p>
+          </div>
+          <div class="card">
+            <h3>Effortless hosting</h3>
+            <p>Fast setup, clear instructions, and smooth cleanup so you can enjoy your event.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages">
+      <div class="container">
+        <h2 class="section-title">Packages</h2>
+        <p class="section-sub">
+          Pick a starting point — we’ll tailor the final setup based on your guest count, venue rules, and drink style.
+          <span style="display:block; margin-top:6px; font-size:13px;">
+            Alcohol is provided by the host. We’ll confirm venue requirements and recommend quantities.
+          </span>
+        </p>
+
+        <div class="packages">
+          <div class="package">
+            <h3>The Signature Pour</h3>
+            <div class="price">Great for birthdays, backyard parties, and casual celebrations.</div>
+            <ul>
+              <li>Up to <strong>2 taps</strong></li>
+              <li>Setup + breakdown</li>
+              <li>Menu board + tap labels</li>
+              <li>Self-serve flow guidance</li>
+            </ul>
+            <a class="btn dark" href="#contact">Get a Quote</a>
+          </div>
+
+          <div class="package featured">
+            <div class="pill">Most Popular</div>
+            <h3>The Tailored Experience</h3>
+            <div class="price">Premium presentation with flexible drink options for mixed crowds.</div>
+            <ul>
+              <li>Up to <strong>4 taps</strong></li>
+              <li>Custom drink menu planning</li>
+              <li>Enhanced garnish / station options</li>
+              <li>Lighting + upgraded styling</li>
+            </ul>
+            <a class="btn primary" href="#contact">Check Availability</a>
+          </div>
+
+          <div class="package">
+            <h3>The Grand Pour</h3>
+            <div class="price">For weddings and corporate events that want the full “wow”.</div>
+            <ul>
+              <li>Up to <strong>4 taps</strong></li>
+              <li><strong>Nitro cold brew</strong> bar option</li>
+              <li>Refreshers + premium add-ons</li>
+              <li>Elevated styling for photos</li>
+            </ul>
+            <a class="btn dark" href="#contact">Build My Menu</a>
+          </div>
+        </div>
+
+        <div class="addons" aria-label="Add-ons">
+          <div class="badge">Nitro Cold Brew</div>
+          <div class="badge">Extra Tap</div>
+          <div class="badge">Extra Hour</div>
+          <div class="badge">Custom Menu Board</div>
+          <div class="badge">Travel (outside core area)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu">
+      <div class="container">
+        <h2 class="section-title">Crowd favorites</h2>
+        <p class="section-sub">
+          A few menu ideas — we’ll tailor based on your theme and guest list. Want a “his & hers” signature pour? Done.
+        </p>
+
+        <div class="menu-grid">
+          <div class="card">
+            <h3>Nitro & Coffee</h3>
+            <ul class="menu-list">
+              <li><span>Nitro Cold Brew</span><small>smooth + creamy</small></li>
+              <li><span>Vanilla Sweet Cream Nitro</span><small>fan favorite</small></li>
+              <li><span>Mocha Nitro</span><small>dessert vibes</small></li>
+              <li><span>Iced Latte Bar</span><small>build your own</small></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Refreshers & Mocktails</h3>
+            <ul class="menu-list">
+              <li><span>Sparkling Lemonade</span><small>bright + bubbly</small></li>
+              <li><span>Cucumber Mint Cooler</span><small>clean + fresh</small></li>
+              <li><span>Strawberry Lime Fizz</span><small>party classic</small></li>
+              <li><span>Iced Tea Bar</span><small>easy crowd win</small></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Client-Supplied On Tap (where allowed)</h3>
+            <ul class="menu-list">
+              <li><span>Beer</span><small>craft or classic</small></li>
+              <li><span>Cider</span><small>great variety option</small></li>
+              <li><span>Seltzers</span><small>light + easy</small></li>
+              <li><span>Wine</span><small>smooth + clean pour</small></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Basics (always welcome)</h3>
+            <ul class="menu-list">
+              <li><span>Chilled Water</span><small>still or sparkling</small></li>
+              <li><span>Juice</span><small>brunch friendly</small></li>
+              <li><span>Cold Brew / Coffee</span><small>daytime events</small></li>
+              <li><span>Garnish Bar</span><small>optional upgrade</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <h2 class="section-title">A little sneak peek</h2>
+        <p class="section-sub">
+          Replace these placeholders with your own photos as you book events. A few great shots will do more than any sales copy.
+        </p>
+
+        <div class="gallery">
+          <div class="ph"><span>Tap setup</span></div>
+          <div class="ph"><span>Nitro pour</span></div>
+          <div class="ph"><span>Menu board</span></div>
+          <div class="ph"><span>Garnish station</span></div>
+          <div class="ph"><span>Event vibes</span></div>
+          <div class="ph"><span>Cheers moment</span></div>
+        </div>
+
+        <div style="margin-top: 14px; display:flex; gap: 10px; flex-wrap: wrap;">
+          <a class="btn" href="https://instagram.com/yourhandle" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn dark" href="#contact">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <p class="section-sub">Quick answers for booking and setup. If you have a unique venue rule, just tell us — we’ll tailor around it.</p>
+
+        <details>
+          <summary>Do you provide alcohol?</summary>
+          <p>No — alcohol is provided by the host. We can provide non-alcoholic beverages (coffee, refreshers, mocktails) and the tap setup for client-supplied kegs where permitted by the venue and local rules.</p>
+        </details>
+
+        <details>
+          <summary>Do we need a bartender?</summary>
+          <p>Most events run smoothly without a dedicated bartender because the system is designed for fast self-serve flow. Some venues require staffed service — if yours does, we’ll coordinate options and keep it simple.</p>
+        </details>
+
+        <details>
+          <summary>How much power do you need?</summary>
+          <p>One standard grounded outlet within ~25 feet is ideal. If your venue is outdoors, we’ll plan an extension option.</p>
+        </details>
+
+        <details>
+          <summary>How long does setup take?</summary>
+          <p>Typically 20–30 minutes depending on tap count and station layout. Teardown is usually faster.</p>
+        </details>
+
+        <details>
+          <summary>Where do you serve?</summary>
+          <p>Inland Empire + surrounding areas. Travel fees may apply outside the core service zone.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Let’s tailor your pour</h2>
+        <p class="section-sub">
+          Send your date + guest count and we’ll recommend a setup and menu that fits your celebration.
+        </p>
+
+        <div class="contact">
+          <div class="card">
+            <h3 style="margin-top:0;">Quick contact</h3>
+            <p style="color:var(--muted); margin-top:0;">
+              Inland Empire, CA<br/>
+              Email: <a href="mailto:hello@tailoredpour.com"><strong>hello@tailoredpour.com</strong></a><br/>
+              Text/Call: <a href="tel:+1-909-555-1212"><strong>(909) 555-1212</strong></a>
+            </p>
+            <p class="fineprint">
+              Tip: set up forwarding so texts go to your phone, and emails go to your main inbox.
+            </p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+              <a class="btn primary" href="mailto:hello@tailoredpour.com?subject=Tailored%20Pour%20Quote%20Request&body=Event%20date%3A%0ALocation%3A%0AGuest%20count%3A%0AEvent%20type%3A%0AInterested%20in%3A%20%28coffee%2Fmocktails%2Ftaps%2Fnitro%29%0A">Email for Quote</a>
+              <a class="btn" href="sms:+19095551212?&body=Hi%20Tailored%20Pour!%20My%20event%20date%20is%20____%20in%20____%20for%20____%20guests.%20Can%20I%20get%20a%20quote%3F">Text for Quote</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-top:0;">Request form</h3>
+            <!-- Simple mailto form: works everywhere, no backend needed -->
+            <form class="form" action="mailto:hello@tailoredpour.com" method="post" enctype="text/plain">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="Name" placeholder="Your name" required />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="Email" type="email" placeholder="you@email.com" required />
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <div>
+                  <label for="date">Event date</label>
+                  <input id="date" name="Event date" placeholder="MM/DD/YYYY" />
+                </div>
+                <div>
+                  <label for="guests">Guest count</label>
+                  <input id="guests" name="Guest count" placeholder="Approx. number" />
+                </div>
+              </div>
+
+              <div>
+                <label for="type">Event type</label>
+                <select id="type" name="Event type">
+                  <option>Birthday / Backyard</option>
+                  <option>Wedding / Reception</option>
+                  <option>Corporate / Office</option>
+                  <option>Brunch / Shower</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="interests">Interested in</label>
+                <select id="interests" name="Interested in">
+                  <option>Refreshers + Mocktails</option>
+                  <option>Nitro Cold Brew</option>
+                  <option>Client-supplied Beer/Wine on Tap</option>
+                  <option>Mix of Everything</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="details">Details</label>
+                <textarea id="details" name="Details" placeholder="Location, venue notes, drink vibe, number of taps, timing, etc."></textarea>
+              </div>
+
+              <button class="btn primary" type="submit">Send Request</button>
+              <p class="fineprint">
+                This form opens your email app to send the request (no backend needed). If you prefer a real form submission,
+                I can swap this to a free Netlify/Cloudflare form setup later.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div style="font-family:'DM Serif Display', serif; color: var(--ink); font-size: 18px;">Tailored Pour</div>
+        <div>Crafted Drinks. Tailored Moments.</div>
+      </div>
+
+      <div>
+        <div><strong>Service Area:</strong> Inland Empire, CA</div>
+        <div><strong>Email:</strong> hello@tailoredpour.com</div>
+        <div><strong>Phone:</strong> (909) 555-1212</div>
+      </div>
+
+      <div style="max-width: 44ch;">
+        <div class="fineprint">
+          Alcohol is provided by the host. Tailored Pour can provide non-alcoholic beverage service and tap setup for client-supplied kegs where permitted.
+          Always follow venue rules and local regulations.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tiny enhancement: smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', id);
+      });
+    });
+  </script>
+</body>
+</html>
